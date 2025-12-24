@@ -1,17 +1,20 @@
 {
   "name": "voip-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "WebRTC video calling application",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": ">=18.x"
+  },
+  "keywords": ["webrtc", "video-call", "socket.io"],
+  "author": "Mohamed Sherif",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "express": "^5.1.0",
+    "express": "^4.21.2",
     "socket.io": "^4.8.1"
   }
 }
