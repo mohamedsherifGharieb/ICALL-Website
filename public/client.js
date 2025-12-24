@@ -51,7 +51,7 @@ function showRoom(roomName) {
   roomTag.innerText = `Room: ${roomName}`;
   roomTag.style.display = "block";
   const brandName = document.getElementById("brandName");
-  brandName.style.left = "5%";  
+  brandName.style.left = "10%";  
   brandName.style.transform = "none";
 }
 
