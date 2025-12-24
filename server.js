@@ -4,9 +4,12 @@ const socketIo = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = new server(server,{
+  cors: {
+    origin: "*"},
+});
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 let rooms = {};
 
@@ -20,7 +23,6 @@ io.on("connection", (socket) => {
       rooms[roomName] = { clients: [] };
     }
 
-    // Fix: Use === for comparison instead of assignment
     if (rooms[roomName].clients.length >= 2) {
       socket.emit("roomFull", roomName);
       console.log(`Room ${roomName} is full. Client ${socket.id} cannot join.`);
@@ -37,11 +39,10 @@ io.on("connection", (socket) => {
     } else {
       socket.emit("joined", roomName); // Emit 'joined' to the second client
       // Notify the first client that a peer has joined
-      socket.to(roomName).emit("peerJoined", roomName); // Optional: For UI updates
+      socket.to(roomName).emit("peerJoined", roomName); 
     }
   });
 
-  // Relay 'ready' events between clients
   socket.on("ready", (roomName) => {
     socket.to(roomName).emit("ready", roomName);
   });

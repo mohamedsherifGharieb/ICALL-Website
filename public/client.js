@@ -1,4 +1,6 @@
 const LOCAL_IP_ADDRESS = "localhost";
+const BACKEND_URL = "https://your-backend-url.up.railway.app";
+
 const getElement = (id) => document.getElementById(id);
 
 const [
@@ -22,7 +24,7 @@ const [
 ].map(getElement);
 const roomTag = getElement("roomTag");
 
-let socket = io.connect("https://pika-worthy-titmouse.ngrok-free.app");
+let socket = io.connect(BACKEND_URL);
 let rtcPeerConnection, localStream, isCaller;
 let iceCandidatesBuffer = [];
 let remoteDescSet = false;
@@ -32,7 +34,7 @@ const rtcConfig = {
   iceServers: [
     { urls: "stun:stun.l.google.com:19302" },
     {
-      urls: "turn:your-turn-server.com:3478",
+      urls: "turn:your-turn-server.com:3478", //Still not Configured a Turn Server 
       username: "your-username",
       credential: "your-password",
     },
