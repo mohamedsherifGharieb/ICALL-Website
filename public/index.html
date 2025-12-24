@@ -17,7 +17,7 @@
       align-items: center;
       position: relative;
     }
-    #brandName {
+#brandName {
   position: absolute;
   top: 5%; 
   left: 50%;
@@ -28,10 +28,8 @@
   font-style: italic;
   letter-spacing: 2px;
   color: #0d6efd;
+  z-index: 10;
 }
-
-
-
     .container {
       width: 90%;
       max-width: 1000px;
@@ -138,6 +136,7 @@
     .d-none {
       display: none;
     }
+    
   </style>
 </head>
 <body>
@@ -149,6 +148,9 @@
     <div id="roomConfig">
       <input type="text" id="roomName" placeholder="Enter room name" required />
       <button id="btnConnect">Connect</button>
+      <p style="margin-top: 15px; color: #aaa; font-size: 14px; max-width: 500px; margin-left: auto; margin-right: auto;">
+    💡     <strong>How to use:</strong> Enter a room name and click Connect. Share the same room name with another person to start a video call together.
+      </p>
     </div>
 
     <div id="roomDiv" class="d-none">
