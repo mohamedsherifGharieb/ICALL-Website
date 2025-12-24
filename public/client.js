@@ -50,6 +50,9 @@ function showRoom(roomName) {
   roomDiv.classList.remove("d-none");
   roomTag.innerText = `Room: ${roomName}`;
   roomTag.style.display = "block";
+  const brandName = document.getElementById("brandName");
+  brandName.style.left = "5%";  
+  brandName.style.transform = "none";
 }
 
 async function getLocalMedia() {
