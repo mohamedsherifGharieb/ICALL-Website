@@ -1,6 +1,4 @@
-const LOCAL_IP_ADDRESS = "localhost";
-const BACKEND_URL = "https://your-backend-url.up.railway.app";
-
+const BACKEND_URL = window.location.origin;
 const getElement = (id) => document.getElementById(id);
 
 const [
